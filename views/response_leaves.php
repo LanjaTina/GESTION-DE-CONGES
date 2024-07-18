@@ -23,8 +23,8 @@
                 <td><?php echo $leave->start_date; ?></td>
                 <td><?php echo $leave->end_date; ?></td>
                 <td><?php echo $leave->reason; ?></td>
-                <td><?php echo $leave->status; ?></td>
-                <td><?php echo $leave->status == 'rejected' ? $leave->rejection_reason : 'N/A'; ?></td>
+                <td><?php echo isset($leave->status) ? $leave->status : 'N/A'; ?></td>
+                <td><?php echo isset($leave->status) && $leave->status == 'rejected' ? $leave->rejection_reason : 'N/A'; ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

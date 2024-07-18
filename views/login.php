@@ -13,5 +13,6 @@
         <button type="submit">Login</button>
     </form>
     <p>Don't have an account? <a href="index.php?controller=User&action=register">Register here</a></p>
+    <p><a href="index.php?controller=Leave&action=adminView">Admin View</a></p>
 </body>
 </html>
