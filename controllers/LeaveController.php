@@ -7,7 +7,7 @@ class LeaveController {
             $endDate = $_POST['end_date'];
             $reason = $_POST['reason'];
             $leaveModel = new Leave();
-            if ($leaveModel->applyLeave($userId, startDate, $endDate, $reason)) {
+            if ($leaveModel->applyLeave($userId, $startDate, $endDate, $reason)) {
                 header('Location: index.php?controller=Leave&action=view');
             } else {
                 echo 'Failed to apply for leave';
@@ -33,7 +33,7 @@ class LeaveController {
             $leaveId = $_GET['id'];
             $leaveModel = new Leave();
             $leave = $leaveModel->getLeaveById($leaveId);
-            require 'views/edit_leave.php';
+            require 'views/edit-leave.php';
         }
     }
     
