@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th>User ID</th>
+                <th>Username</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Reason</th>
@@ -25,6 +26,7 @@
             <?php foreach ($leaves as $leave): ?>
             <tr>
                 <td><?php echo $leave->user_id; ?></td>
+                <td><?php echo $leave->username; ?></td>
                 <td><?php echo $leave->start_date; ?></td>
                 <td><?php echo $leave->end_date; ?></td>
                 <td><?php echo $leave->reason; ?></td>

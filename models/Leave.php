@@ -38,7 +38,11 @@ class Leave {
     }
 
     public function getAllLeaves() {
-        $this->db->query('SELECT * FROM leaves');
+        $this->db->query('
+            SELECT leaves.*, users.username 
+            FROM leaves 
+            JOIN users ON leaves.user_id = users.id
+        ');
         return $this->db->resultSet();
     }
 
