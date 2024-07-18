@@ -7,7 +7,7 @@ class Leave {
     }
 
     public function applyLeave($userId, $startDate, $endDate, $reason) {
-        $this->db->query('INSERT INTO leaves (user_id, start_date, end_date, reason) VALUES (:user_id, :start_date, :end_date, :reason)');
+        $this->db->query('INSERT INTO leaves (user_id, start_date, end_date, reason, status) VALUES (:user_id, :start_date, :end_date, :reason, "pending")');
         $this->db->bind(':user_id', $userId);
         $this->db->bind(':start_date', $startDate);
         $this->db->bind(':end_date', $endDate);
@@ -37,6 +37,24 @@ class Leave {
         return $this->db->resultSet();
     }
 
+    public function getAllLeaves() {
+        $this->db->query('SELECT * FROM leaves');
+        return $this->db->resultSet();
+    }
+
+    public function approveLeave($leaveId) {
+        $this->db->query('UPDATE leaves SET status = "approved" WHERE id = :id');
+        $this->db->bind(':id', $leaveId);
+        return $this->db->execute();
+    }
+
+    public function rejectLeave($leaveId, $reason) {
+        $this->db->query('UPDATE leaves SET status = "rejected", rejection_reason = :reason WHERE id = :id');
+        $this->db->bind(':id', $leaveId);
+        $this->db->bind(':reason', $reason);
+        return $this->db->execute();
+    }
+    
 
     public function deleteLeave($leaveId) {
         $this->db->query('DELETE FROM leaves WHERE id = :id');

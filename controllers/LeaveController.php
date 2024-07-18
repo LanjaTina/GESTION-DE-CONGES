@@ -54,6 +54,44 @@ class LeaveController {
         require 'views/view_leaves.php';
     }
 
+    public function adminView() {
+        $leaveModel = new Leave();
+        $leaves = $leaveModel->getAllLeaves();
+        require 'views/admin_view_leaves.php';
+    }
+
+    public function approve() {
+        $leaveId = $_GET['id'];
+        $leaveModel = new Leave();
+        if ($leaveModel->approveLeave($leaveId)) {
+            header('Location: index.php?controller=Leave&action=adminView');
+        } else {
+            echo 'Failed to approve leave';
+        }
+    }
+
+    public function reject() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $leaveId = $_POST['leave_id'];
+            $reason = $_POST['rejection_reason'];
+            $leaveModel = new Leave();
+            if ($leaveModel->rejectLeave($leaveId, $reason)) {
+                header('Location: index.php?controller=Leave&action=adminView');
+            } else {
+                echo 'Failed to reject leave';
+            }
+        } else {
+            $leaveId = $_GET['id'];
+            require 'views/reject_leave.php';
+        }
+    }
+
+    public function response() {
+        $leaveModel = new Leave();
+        $leaves = $leaveModel->getLeaves($_SESSION['user_id']);
+        require 'views/response_leaves.php';
+    }
+
     public function dashboard() {
         require 'views/dashboard.php';
     }
