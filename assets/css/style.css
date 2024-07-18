@@ -1,0 +1,12 @@
+body {
+    padding-top: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-custom {
+    background-color: #5cb85c;
+    color: white;
+}
