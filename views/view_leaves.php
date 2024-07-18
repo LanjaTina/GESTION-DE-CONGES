@@ -15,6 +15,7 @@
     <div class="container mt-5">
         <h2>View Leaves</h2>
         <div class="mb-3 text-right">
+        <a href="javascript:history.back()" class="btn btn-secondary">Dashboard</a>
             <a href="index.php?controller=Leave&action=apply" class="btn btn-primary">Add Leave</a>
             <a href="index.php?controller=User&action=logout" class="btn btn-danger">Logout</a>
         </div>
