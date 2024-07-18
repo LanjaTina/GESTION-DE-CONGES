@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <form action="index.php?controller=User&action=login" method="POST">
+    <h2>Register</h2>
+    <form action="index.php?controller=User&action=register" method="POST">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
     </form>
-    <p>Don't have an account? <a href="index.php?controller=User&action=register">Register here</a></p>
 </body>
 </html>
