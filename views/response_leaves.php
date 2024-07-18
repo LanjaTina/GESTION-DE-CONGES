@@ -33,6 +33,9 @@
 <body>
     <div class="container mt-5">
         <h2>Leave Response</h2>
+        <div class="mb-3 text-right">
+            <a href="index.php?controller=User&action=dashboard" class="btn btn-secondary">Dashboard</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
