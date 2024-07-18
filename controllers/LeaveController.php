@@ -37,6 +37,16 @@ class LeaveController {
         }
     }
     
+    public function delete() {
+        $leaveId = $_GET['id'];
+        $leaveModel = new Leave();
+        if ($leaveModel->deleteLeave($leaveId)) {
+            header('Location: index.php?controller=Leave&action=view');
+        } else {
+            echo 'Failed to delete leave';
+        }
+    }
+    
 
     public function view() {
         $leaveModel = new Leave();

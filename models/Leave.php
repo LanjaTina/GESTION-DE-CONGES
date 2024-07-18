@@ -37,6 +37,14 @@ class Leave {
         return $this->db->resultSet();
     }
 
+
+    public function deleteLeave($leaveId) {
+        $this->db->query('DELETE FROM leaves WHERE id = :id');
+        $this->db->bind(':id', $leaveId);
+        return $this->db->execute();
+    }
+    
+
     // Autres méthodes pour la gestion des congés
 }
 ?>
