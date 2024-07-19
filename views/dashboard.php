@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="container dashboard-container">
-        <h2>Welcome, <?php echo $_SESSION['username']; ?>!</h2>
+        <h2>TONGASOA, <?php echo $_SESSION['username']; ?>!</h2>
         <div class="btn-group" role="group" aria-label="Basic example">
             <a href="index.php?controller=Leave&action=apply" class="btn btn-primary">Apply for Leave</a>
             <a href="index.php?controller=Leave&action=view" class="btn btn-secondary">View Leaves</a>
