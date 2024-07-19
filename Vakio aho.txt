@@ -1,0 +1,39 @@
+manokafa xampp (xampp no nampiasaiko ho an'ny back)
+mamorona base de données de ny anarany "gestion_conges"
+
+aveo mi ajouter colomne "leaves" sy "users"
+
+ra ohatra tsy mety dia manokafa requete SQL de ataovy ao ito :: "
+
+	CREATE DATABASE IF NOT EXISTS gestion_conges;
+USE gestion_conges;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS leaves (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(11) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    reason TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+"
+
+de aveo cliqué na ny exécuter,
+
+de farany nisy last update key nataoko : ajouteo ao @ requete sql an'i leaves reto :"ALTER TABLE leaves ADD COLUMN status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending';
+ALTER TABLE leaves ADD COLUMN rejection_reason TEXT NULL;" de executé o, fafana aloha ilay "SELECT 'leaves' Where 1 io zay vao mi add an ireo.
+
+zay, mazotoa 
+dia bisous de byebye 
+
+
+Lanja!
+
