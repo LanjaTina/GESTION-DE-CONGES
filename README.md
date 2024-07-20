@@ -67,7 +67,7 @@ Cette application est une gestion de congés basique en PHP utilisant le modèle
 ## Structure du projet
 
 ```plaintext
-gestion-conges-mvc/
+gestion-conges/
 ├── config/
 │   └── config.php
 ├── controllers/
